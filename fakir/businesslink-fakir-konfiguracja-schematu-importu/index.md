@@ -67,7 +67,7 @@ where ID_FK_KOD_KSIEGOWY_TREE = @poz_id_kod_ksiegowy)
 
 ## Definicja warunków
 
-Dodajemy zmienną 'jest klasyfikacjapoz' na FZ i KFZ
+Dodajemy zmienną [@jest_klasyfikacja_poz] na FZ i KFZ
 
 ![alt text](images/definicja-warunkow-jest-klasyfikacja-poz.png)
 
@@ -83,7 +83,7 @@ Kwoty i brutto i VAT tradycyjnie, kwota netto przy księgowaniu z nagłówka
 
 ![alt text](images/schemat-ksiegowanie-naglowek.png)
 
-Używamy tu w warunku zmiennej 'jest klasyfikacja poz' zdefiniowanej krok wcześniej.
+Używamy tu w warunku zmiennej [@jest_klasyfikacja_poz] zdefiniowanej krok wcześniej.
 I kodu dla konta DT
 
 ```sql
