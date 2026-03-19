@@ -3,7 +3,7 @@
 **Dotyczy:** importu dokumentów z usługi Businesslink do Fakira
 Idea jest taka:
 1. Badamy ustawioną klasyfikację i na jej podstawie ustalamy numer konta
-2. Klasyfikacja może być ustawiona tylko w nagłówku, wtedy wszsytkie pozycje mają to samo konto
+2. Klasyfikacja może być ustawiona tylko w nagłówku, wtedy wszystkie pozycje mają to samo konto
 3. Klasyfikacja może być ustawiona dla pozycji. Wtedy na tych pozycjach, na których
 jest ustawiona dekret zrobi się na jej podstawie. Na pozycjach bez wybranej
 klasyfikacji ustawi się dekret na podstawie klasyfikacji z nagłówka.
@@ -31,13 +31,13 @@ Usunięcie z metabazy skasowanych z klasyfikacji danych można zrobić po wejśc
 
 ![Kasowanie wpisów z metabazy](images/metabaza-kasowanie-wpisow.png)
 
-## teraz definiujemy zmienne
+## Teraz definiujemy zmienne
 
-![alt text](zmienne.png)
+![alt text](images/zmienne.png)
 
 ### [@jest_klasyfikacja_poz]
 
-![alt text](zmienne-jest-klasyfikacja-poz.png)
+![alt text](images/zmienne-jest-klasyfikacja-poz.png)
 
 (to do dodania)
 
@@ -47,7 +47,7 @@ Usunięcie z metabazy skasowanych z klasyfikacji danych można zrobić po wejśc
 
 ### [@klasyfikacja_nag]
 
-![alt text](zmienne-klasyfikacja-nag.png)
+![alt text](images/zmienne-klasyfikacja-nag.png)
 
 ```sql
 (select top 1 KOD_TREE from dbo.fn_fk_BL_ListaKodowKsiegowych ()
@@ -56,7 +56,7 @@ where ID_FK_KOD_KSIEGOWY_TREE = @d_id_kod_ksiegowy)
 
 ### [@klasyfikacja_poz]
 
-![alt text](zmienne-klasyfikacja-poz.png)
+![alt text](images/zmienne-klasyfikacja-poz.png)
 
 (ten kod ewentualnie do poprawy)
 
@@ -67,23 +67,23 @@ where ID_FK_KOD_KSIEGOWY_TREE = @poz_id_kod_ksiegowy)
 
 ## Definicja warunków
 
-Ddajemy zmienną [@jest_klasyfikacja_poz] na FZ i KFZ
+Dodajemy zmienną 'jest klasyfikacjapoz' na FZ i KFZ
 
-![alt text](definicja-warunkow-jest-klasyfikacja-poz.png)
+![alt text](images/definicja-warunkow-jest-klasyfikacja-poz.png)
 
 Można ją oprzeć o warunki z metabazy (wpisane ręcznie)
 
-![alt text](definicja-warunkow-jest-klasyfikacja-poz-metabaza.png)
+![alt text](images/definicja-warunkow-jest-klasyfikacja-poz-metabaza.png)
 
 ## Przechodzimy do schematu
 
-![alt text](schemat-ogolnie.png)
+![alt text](images/schemat-ogolnie.png)
 
 Kwoty i brutto i VAT tradycyjnie, kwota netto przy księgowaniu z nagłówka
 
-![alt text](schemat-ksiegowanie-naglowek.png)
+![alt text](images/schemat-ksiegowanie-naglowek.png)
 
-Używamy tu w warunku zmiennej [jestklasyfikacja poz] zdefiniowanej krok wcześniej.
+Używamy tu w warunku zmiennej 'jest klasyfikacja poz' zdefiniowanej krok wcześniej.
 I kodu dla konta DT
 
 ```sql
@@ -95,7 +95,7 @@ end
 
 I księgowanie z pozycji (tu ewentualnie algorytm do dodania\poprawy)
 
-![alt text](schemat-ksiegowanie-pozycje.png)
+![alt text](images/schemat-ksiegowanie-pozycje.png)
 
 
 ```sql
@@ -110,8 +110,8 @@ end
 
 ### W nagłowku jedna klasyfikacja, w dwóch pozycjach dwie kolejne, jednej brak
 
-![alt text](example-010.png)
+![alt text](images/example-010.png)
 
 Dwa konta wzięte z pozycji, trzecie z nagłówka
 
-![alt text](example-011.png)
+![alt text](images/example-011.png)
